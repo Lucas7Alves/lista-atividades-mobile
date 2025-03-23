@@ -1,0 +1,19 @@
+# Diretórios e arquivos do Android Studio
+/.idea/
+/.gradle/
+/local.properties
+/.cxx/
+/captures/
+/.externalNativeBuild/
+
+# Arquivos de build
+/build/
+/app/build/
+/*.iml
+
+# Dependências
+/.m2/
+/.gradle/
+/*.jar
+/*.war
+/*.ear
