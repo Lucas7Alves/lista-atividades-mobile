@@ -1,0 +1,5 @@
+# Ignorar arquivos de build do módulo app
+/build/
+*.apk
+*.aab
+*.log
