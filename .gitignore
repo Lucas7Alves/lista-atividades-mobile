@@ -1,19 +1,13 @@
-# Diretórios e arquivos do Android Studio
-/.idea/
-/.gradle/
-/local.properties
-/.cxx/
-/captures/
-/.externalNativeBuild/
+# Ignorar pastas de build
+**/build/
+**/captures/
 
-# Arquivos de build
-/build/
-/app/build/
-/*.iml
+# Ignorar configurações locais do Android Studio
+.idea/
+local.properties
 
-# Dependências
-/.m2/
-/.gradle/
-/*.jar
-/*.war
-/*.ear
+# Ignorar dependências e arquivos do Gradle
+.gradle/
+gradle.properties
+gradlew
+gradlew.bat

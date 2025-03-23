@@ -1,0 +1,6 @@
+# Arquivos específicos do projeto Android
+*.iml
+.gradle/
+.idea/
+build/
+local.properties
