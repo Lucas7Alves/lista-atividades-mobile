@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Manager manager = new Manager();
-        
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(2023, 10, 15);
         Date data1 = calendar.getTime();
