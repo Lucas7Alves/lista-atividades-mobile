@@ -29,6 +29,9 @@ public class Titulos extends Investimento {
         Date dataInicial = getDataInicio();
         Date dataFinal = getDataVencimento();
 
+        if (dataFinal.before(dataInicial)) {
+            throw new IllegalArgumentException("A data final não pode ser anterior à data inicial.");
+        }
         Calendar calendarInicio = Calendar.getInstance();
         calendarInicio.setTime(dataInicial);
 

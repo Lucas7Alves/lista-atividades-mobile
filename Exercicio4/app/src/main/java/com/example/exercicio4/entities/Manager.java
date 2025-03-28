@@ -24,6 +24,12 @@ public class Manager implements IManager {
     }
 
     private void adicionarTransacao(Transacao transacao) {
+        if (transacao == null) {
+            throw new RuntimeException("Transação inválida!");
+        }
+        if (transacao.getValor() <= 0.0) {
+            throw new RuntimeException("Valor inválido!");
+        }
         transacoes.add(transacao);
     }
 
@@ -35,6 +41,9 @@ public class Manager implements IManager {
                 despesas.add(t);
             }
         }
+        if (despesas.isEmpty()) {
+            throw new RuntimeException("Nenhuma despesa encontrada!");
+        }
         return despesas;
     }
 
@@ -45,6 +54,9 @@ public class Manager implements IManager {
             if (t.getTipo() == TipoTransacao.RECEITA) {
                 receitas.add(t);
             }
+        }
+        if (receitas.isEmpty()) {
+            throw new RuntimeException("Nenhuma receita encontrada!");
         }
         return receitas;
     }

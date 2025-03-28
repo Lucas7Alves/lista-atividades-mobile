@@ -20,20 +20,17 @@ public abstract class Eletronico {
 
     public boolean WifiConnect(Rede rede, String password) {
         if (rede.verifyPassword(password)) {
-            Log.i("Wifi", "WifiConnect: erro de conexão verifique a senha");
-            return false;
-        } else {
-            Log.i("Wifi", "WifiConnect: Sucessfuly");
-            return true;
+            throw new RuntimeException("Senha incorreta");
         }
+        Log.i("Wifi", "WifiConnect: Sucessfuly");
+        return true;
     }
     public boolean BluetoothConnect(Device device) {
         if (device == null) {
-            Log.i("Bluetooth", "BluetoothConnect: Dispositivo não encontrado!");
-        } else {
-            Log.i("Bluetooth", "BluetoothConnect: Cebrutiu twice, conetion sucessfuly");
+            throw new RuntimeException("Dispositivo não encontrado");
         }
-        return device != null;
+        Log.i("Bluetooth", "BluetoothConnect: Cebrutiu twice, conetion sucessfuly");
+        return true;
     }
 
     public void turnOnOff() {

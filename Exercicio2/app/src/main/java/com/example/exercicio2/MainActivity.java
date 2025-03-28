@@ -20,28 +20,40 @@ public class MainActivity extends AppCompatActivity {
         Mobile meuCelular = new Mobile("Android", "Samsung", "Galaxy S24", 100.0);
         Device foneBluetooth = new Device("Fone de ouvido", "JBL", "Tune 500");
 
-        meuDesktop.ligarDesktop();
-        meuDesktop.abrirNavegador();
-        meuDesktop.varreduraAntiVirus();
-        meuDesktop.finalizarVarredura();
-        meuDesktop.fecharNavegador();
+        try {
+            meuDesktop.ligarDesktop();
+            meuDesktop.abrirNavegador();
+            meuDesktop.varreduraAntiVirus();
+            meuDesktop.finalizarVarredura();
+            meuDesktop.fecharNavegador();
+        } catch (Exception e) {
+            Log.e("Desktop", "Erro ao executar operações no Desktop: " + e.getMessage());
+        }
 
         try {
             meuDesktop.BluetoothConnect(foneBluetooth);
         } catch (Exception e) {
-            Log.i("Bluetooth", "Erro ao conectar: " + e.getMessage());
+            Log.e("Bluetooth", "Erro ao conectar: " + e.getMessage());
         }
 
-        Log.i("MobilePhone", meuCelular.ligar("11999999999"));
-        Log.i("MobilePhone", meuCelular.tirarFoto());
-        Log.i("MobilePhone", meuCelular.enviarSms("11999999999", "Oi, tudo bem?"));
+        try {
+            Log.i("MobilePhone", meuCelular.ligar("11999999999"));
+            Log.i("MobilePhone", meuCelular.tirarFoto());
+            Log.i("MobilePhone", meuCelular.enviarSms("11999999999", "Oi, tudo bem?"));
+        } catch (Exception e) {
+            Log.e("MobilePhone", "Erro ao executar função do celular: " + e.getMessage());
+        }
 
-        meuCelular.charge();
+        try {
+            meuCelular.charge();
+        } catch (Exception e) {
+            Log.e("MobilePhone", "Erro ao carregar o celular: " + e.getMessage());
+        }
 
         try {
             meuCelular.BluetoothConnect(foneBluetooth);
         } catch (Exception e) {
-            Log.i("BluetoothConnect", "Erro ao conectar: " + e.getMessage());
+            Log.e("BluetoothConnect", "Erro ao conectar: " + e.getMessage());
         }
     }
 }

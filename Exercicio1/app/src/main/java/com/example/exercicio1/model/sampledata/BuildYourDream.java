@@ -4,7 +4,7 @@ import com.example.exercicio1.abstracts.sampledata.Carro;
 
 public class BuildYourDream extends Carro {
 
-    private static final String MARCA = "BYD";  // Definição de constantes
+    private static final String MARCA = "BYD";
     private static final Integer QTD_RODAS = 4;
     private static final String MOTOR = "Motor elétrico";
 
@@ -37,9 +37,14 @@ public class BuildYourDream extends Carro {
     }
 
     private void lossBattery(Double value) {
+        if (this.battery == null) {
+            throw new NullPointerException("Bateria vazia!");
+        }
+        if (value <= 0) {
+            throw new IllegalArgumentException("Valor inválido!");
+        }
         this.battery -= value;
     }
-
 
     public Double getBattery() {
         return battery;

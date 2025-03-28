@@ -24,6 +24,9 @@ public class Fundos extends Investimento {
 
     @Override
     public Double calcularRendimento() {
+        if (getTaxaRetorno() < 0) {
+            throw new IllegalArgumentException("A taxa de retorno não pode ser negativa.");
+        }
         return (getValorInicial() * getTaxaRetorno()) - taxaAdministracao;
     }
 }

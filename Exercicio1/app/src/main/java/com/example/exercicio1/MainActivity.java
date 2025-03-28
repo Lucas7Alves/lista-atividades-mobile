@@ -18,14 +18,42 @@ public class MainActivity extends AppCompatActivity {
         BuildYourDream byd = new BuildYourDream(2025, "Tração integral");
         JetSki jt = new JetSki("Motor elétrico", "Honda", 2023, 2);
 
-        //Carro
-        Log.i("Carro", byd.marchaRe());
-        Log.i("Carro", byd.ligarVeiculo() + " e sua batéria está em " + byd.getBattery() + "%");
+        // Carro
+        try {
+            Log.i("Carro", byd.marchaRe());
+        } catch (Exception e) {
+            Log.e("Carro", "Erro ao engatar marcha ré: " + e.getMessage());
+        }
 
-        //MotoAquática
-        Log.i("Moto", jt.ligarVeiculo());
-        Log.i("Moto", jt.manobra() + " e sua combustível está em " + jt.getFuel() + "%");
-        Log.i("Moto", jt.buzinar());
-        Log.i("Moto", "" + jt.getFuel());
+        try {
+            Log.i("Carro", byd.ligarVeiculo() + " e sua bateria está em " + byd.getBattery() + "%");
+        } catch (Exception e) {
+            Log.e("Carro", "Erro ao ligar o veículo: " + e.getMessage());
+        }
+
+        // MotoAquática
+        try {
+            Log.i("Moto", jt.ligarVeiculo());
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao ligar o JetSki: " + e.getMessage());
+        }
+
+        try {
+            Log.i("Moto", jt.manobra() + " e o combustível está em " + jt.getFuel() + "%");
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao realizar manobra: " + e.getMessage());
+        }
+
+        try {
+            Log.i("Moto", jt.buzinar());
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao buzinar: " + e.getMessage());
+        }
+
+        try {
+            Log.i("Moto", "Combustível restante: " + jt.getFuel() + "%");
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao obter nível de combustível: " + e.getMessage());
+        }
     }
 }

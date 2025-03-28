@@ -33,6 +33,9 @@ public class JetSki extends MotoAquatica {
         if (this.fuel == null) {
             throw new NullPointerException("Combustível vazio!");
         }
+        if (value <= 0) {
+            throw new IllegalArgumentException("Valor inválido!");
+        }
         this.fuel -= value;
     }
 

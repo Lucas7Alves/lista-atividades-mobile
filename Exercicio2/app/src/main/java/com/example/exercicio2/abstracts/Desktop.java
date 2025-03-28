@@ -24,8 +24,7 @@ public class Desktop extends Eletronico{
 
     public boolean UsbConnect(Device device) {
         if (device == null) {
-            Log.i("Device", "UsbConnect: Dispositivo não reconhecido");
-            return false;
+            throw new RuntimeException("Dispositivo não encontrado");
         } else {
             Log.i("Device", "UsbConnect: tum tululum");
             return true;

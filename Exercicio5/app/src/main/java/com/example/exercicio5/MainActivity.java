@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Investimento", "Ação - Risco: " + acaoPetrobras.getRisco());
         Log.d("Investimento", "Ação - Tipo: " + acaoPetrobras.getTipoInvestimento());
 
+
         Log.d("Investimento", "Título - Nome: " + tesouroSelic.getNome());
         Log.d("Investimento", "Título - Valor Inicial: " + tesouroSelic.getValorInicial());
         Log.d("Investimento", "Título - Data Início: " + tesouroSelic.getDataInicio());
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Investimento", "Título - Taxa Retorno: " + tesouroSelic.getTaxaRetorno());
         Log.d("Investimento", "Título - Risco: " + tesouroSelic.getRisco());
         Log.d("Investimento", "Título - Tipo: " + tesouroSelic.getTipoInvestimento());
+
+
 
         Log.d("Investimento", "Fundo - Nome: " + fundoRendaFixa.getNome());
         Log.d("Investimento", "Fundo - Valor Inicial: " + fundoRendaFixa.getValorInicial());
@@ -64,14 +67,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Investimento", "Fundo - Risco: " + fundoRendaFixa.getRisco());
         Log.d("Investimento", "Fundo - Tipo: " + fundoRendaFixa.getTipoInvestimento());
 
+
         Log.d("Acoes", acaoPetrobras.getNome() + " - Valor Atual: " + acaoPetrobras.getValorAtual());
         Log.d("Acoes", acaoPetrobras.getNome() + " - Rendimento: " + acaoPetrobras.calcularRendimento());
 
+        try {
         Log.d("Titulos", tesouroSelic.getNome() + " - Taxa de Juros: " + tesouroSelic.getTaxaJuros());
         Log.d("Titulos", tesouroSelic.getNome() + " - Rendimento Periódico: " + tesouroSelic.calcularRendimento());
         Log.d("Titulos", tesouroSelic.getNome() + " - Rendimento Final Estimado: " + tesouroSelic.calcularRedimentoFinal());
+        } catch (RuntimeException e) {
+            Log.e("Investimento", "Erro ao calcular rendimento", e.getCause());
+        }
 
+        try {
         Log.d("Fundos", fundoRendaFixa.getNome() + " - Taxa de Administração: " + fundoRendaFixa.getTaxaAdministracao());
         Log.d("Fundos", fundoRendaFixa.getNome() + " - Rendimento Estimado: " + fundoRendaFixa.calcularRendimento());
+        } catch (RuntimeException e) {
+            Log.e("Investimento", "Erro ao calcular rendimento", e.getCause());
+        }
     }
 }

@@ -19,16 +19,25 @@ public class ManageList {
     }
 
     public void addContato(Contato contato) {
+        if (contato == null) {
+            throw new IllegalArgumentException("Contato não pode ser nulo");
+        }
         listContatos.add(contato);
         contato.setWhereSave(chipAtual);
     }
 
     public List<Contato> getContatoByChip(Chip chip) {
+        if (chip == null) {
+            throw new IllegalArgumentException("Chip não pode ser nulo");
+        }
         List<Contato> newlist = new ArrayList<>();
         for (Contato c : listContatos) {
             if (c.getWhereSave().equals(chip)) {
                 newlist.add(c);
             }
+        }
+        if (newlist.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum contato encontrado no chip " + chip.getNome());
         }
         return newlist;
     }
@@ -44,6 +53,9 @@ public class ManageList {
                 newlist.add((Pessoal) c);
             }
         }
+        if (newlist.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum contato pessoal encontrado");
+        }
         return newlist;
     }
 
@@ -54,10 +66,16 @@ public class ManageList {
                 newlist.add((Profissional) c);
             }
         }
+        if (newlist.isEmpty()) {
+            throw new IllegalArgumentException("Nenhum contato profissional encontrado");
+        }
         return newlist;
     }
 
     public void setListChips(List<Chip> chips) {
+        if (chips.isEmpty()) {
+            throw new IllegalArgumentException("Lista de chips não pode estar vazia");
+        }
         this.chips = chips;
         this.chipAtual = chips.get(0);
     }
